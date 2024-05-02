@@ -85,6 +85,12 @@ Each node hosts an HTTP server that provides a /status endpoint to check the cur
 > **Inspired by Raft**
 DuckDuckGoose's leader election and node role management are inspired by the Raft consensus algorithm, which is renowned for its simplicity and effectiveness in managing distributed systems. The Raft algorithm provides a framework to ensure that leadership is democratically elected and that data consistency is maintained across all nodes. In DuckDuckGoose, we've adapted these principles to fit a lighter and more specific use case: dynamically managing node roles within a resilient cluster.
 
+> **Custom Implementation of Raft-Style Election**
+Instead of relying on existing third-party libraries for node election and management, we opted to design and implement a custom solution based on a Raft-styled consensus protocol. This decision was driven by two key factors:
+
+- **Scalability and Customization:** A custom solution offers greater scalability and customization. It allows us to design the election process precisely to our system's needs, not to mention that we can maintain complete control over our codebase, reducing reliance on external libraries.
+- **Learning and Demonstration:** Implementing my own version of the Raft algorithm provided a great learning experience and a chance to demonstrate my capability to translate complex distributed system theories into practical, simple but working software.
+
 > **Choosing Cowboy over Phoenix**
 For the HTTP server component, we chose to use Cowboy, a small, fast, and modular HTTP server, over more extensive frameworks like Phoenix. This decision was driven by the following considerations:
 
